@@ -1,0 +1,4 @@
+# Block secrets and local env from the web
+<FilesMatch "^(\.env|\.env\..*|composer\.(json|lock))$">
+    Require all denied
+</FilesMatch>
