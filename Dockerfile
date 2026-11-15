@@ -37,7 +37,9 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         mbstring
 
 # Enable Apache modules
-RUN a2enmod rewrite && \
+RUN rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf && \
+    a2enmod mpm_prefork && \
+    a2enmod rewrite && \
     a2enmod deflate && \
     a2enmod expires
 

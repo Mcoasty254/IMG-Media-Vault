@@ -113,6 +113,10 @@ test_db_connection
 # Setup Apache
 setup_apache
 
+# Listen on Railway's PORT (default 80)
+sed -i "s/Listen 80/Listen ${PORT:-80}/" /etc/apache2/ports.conf
+sed -i "s/<VirtualHost \*:80>/<VirtualHost *:${PORT:-80}>/" /etc/apache2/sites-available/000-default.conf
+
 # Execute the main Apache process
 echo "Starting Apache..."
 exec apache2-foreground
