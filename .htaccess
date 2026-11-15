@@ -1,0 +1,13 @@
+# Block secrets and local env from the web
+<FilesMatch "^(\.env|\.env\..*|composer\.(json|lock))$">
+    Require all denied
+</FilesMatch>
+
+# Set index.html as the actual home page
+DirectoryIndex index.html index.php
+
+# Optional: pretty rewrite rules if needed later
+RewriteEngine On
+
+# Prevent directory listing
+Options -Indexes
