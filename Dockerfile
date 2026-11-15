@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libcurl4-openssl-dev \
     unzip \
     git \
+    netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
